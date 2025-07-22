@@ -18,6 +18,27 @@
         background-attachment: fixed;
         position: relative;
       }
+
+      .glow-name {
+        font-size: 4rem;
+        font-family: "Great Vibes", cursive;
+        color: #ff69b4;
+        text-shadow: 0 0 5px #ff69b4, 0 0 10px #ff1493, 0 0 20px #ff69b4,
+          0 0 30px #ff1493;
+        animation: glowPulse 2s infinite alternate;
+      }
+
+      @keyframes glowPulse {
+        from {
+          text-shadow: 0 0 5px #ff69b4, 0 0 10px #ff1493, 0 0 20px #ff69b4,
+            0 0 30px #ff1493;
+        }
+        to {
+          text-shadow: 0 0 10px #ff1493, 0 0 20px #ff69b4, 0 0 30px #ff1493,
+            0 0 40px #ff69b4;
+        }
+      }
+
       header {
         text-align: center;
         padding: 2rem;
@@ -206,14 +227,24 @@
         border-radius: 12px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
       }
+      .love-letter,
+      .memory-wheel,
+      .photo-gallery h2,
+      header {
+        font-family: "Sacramento", cursive;
+      }
     </style>
     <link
       rel="stylesheet"
       href="https://unpkg.com/swiper/swiper-bundle.min.css"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <header>Happy Birthday Anisa</header>
+    <header>Happy Birthday <span class="glow-name">Anisa</span></header>
 
     <section class="card">
       <h2>🎉 Countdown to Celebration</h2>
@@ -687,5 +718,23 @@
         color: #000 !important;
       }
     </style>
+    <section class="card" id="couponCard">
+      <h2>🎁 Your Love Coupon</h2>
+      <p
+        id="couponText"
+        style="font-size: 1.2rem; display: none; color: #d63384"
+      >
+        You’ve won: 💋 A kiss bomb + 🥰 unlimited cuddles + 🍫 chocolate treat!
+      </p>
+      <button onclick="revealCoupon()">Scratch to Reveal</button>
+    </section>
+    <script>
+      function revealCoupon() {
+        document.getElementById("couponText").style.display = "block";
+        document
+          .getElementById("couponCard")
+          .querySelector("button").style.display = "none";
+      }
+    </script>
   </body>
 </html>
